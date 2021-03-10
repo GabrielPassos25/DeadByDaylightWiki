@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import {Image, Text, View,TouchableOpacity, Button, Dimensions, ScrollView, StyleSheet} from 'react-native';
 import Felix from './Felix.js'
 import Yun from './Yun.js'
-const Survivors = () =>{
+const Killers = () =>{
     const [estado,setarEstado] = useState('Sobreviventes');
     if(estado == 'Sobreviventes'){
         return(
             <View style={{paddingBottom:70, width: Dimensions.get('window').width, height:Dimensions.get('window').height,backgroundColor:'#29292b'}}>
                 <ScrollView>
                 <View style ={{flex:1, flexDirection:'row',padding:10, justifyContent:'center', marginTop:10}}>
-                    <Text style={{color:'white',fontSize:25,marginTop:15}}>The <Text style={{textAlign:'center', marginLeft:5, fontSize:25, color: '#a6a105'}}>Survivors</Text></Text>
+                    <Text style={{color:'white',fontSize:25,marginTop:15}}>The <Text style={{textAlign:'center', marginLeft:5, fontSize:25, color: '#a6a105'}}>Killers</Text></Text>
                     <Image style={{width:50,height:50}} source={{ uri: "https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/b/b3/IconHelpLoading_survivor.png/revision/latest/scale-to-width-down/128?cb=20170926082103"}}/>          
                 </View>
                 <View style={{borderBottomColor: '#a6a105',borderBottomWidth: 1, marginTop:10, paddind:20}}/>
@@ -143,6 +143,7 @@ const Survivors = () =>{
     else if(estado == 'Felix'){
         return(
             <View style={{backgroundColor:'#29292b'}} style={StyleSheet.absoluteFill}>
+                <Header></Header>
                 <Felix></Felix>
             </View>
         )
@@ -150,10 +151,11 @@ const Survivors = () =>{
     else if(estado == 'Yun'){
         return(
             <View style={{backgroundColor:'#29292b'}} style={StyleSheet.absoluteFill}>
+                <Header></Header>
                 <Yun></Yun>
             </View>
         )
     }
 }
 
-export default Survivors;
+export default Killers;

@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Collapsible from 'react-native-collapsible'
 import {Image, Text, View,TouchableOpacity, Dimensions, ScrollView, FlatList, StyleSheet} from 'react-native';
-import Header from './Header.js'
-import Survivors from './Survivors.js'
 
 const Felix = () =>{  
     const [collapsed, setCollapsed] = useState(true); //Overview
@@ -23,13 +21,10 @@ const Felix = () =>{
             <View style={{paddingBottom:70, width: Dimensions.get('window').width, height:Dimensions.get('window').height,backgroundColor:'#29292b'}}>
                 <ScrollView>
                 {/*Seção Informações gerais*/}
-                {/*TODO: ajeitar botão*/}
-                <View style={{flexDirection:'row', width:'100%'}}>
-                    <TouchableOpacity onPress={() => setarEstado('Sobreviventes')}>
-                        <Image style={{width:30,height:30,marginTop:20}} source={{ uri: "https://i.imgur.com/VimgyK5.png"}}/>                      
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => setarEstado('Sobreviventes')}>
-                        <Text style={{marginTop:25, fontSize:20, marginLeft:-5, color:'#a6a105'}}>Voltar</Text>
+                <View>
+                    <TouchableOpacity style={{marginTop: 5,alignItems: 'center', flexDirection:'row', width: '100%'}} onPress={() => setarEstado('Sobreviventes')}>
+                        <Image style ={styles.back_button} source={{ uri: "https://i.imgur.com/VimgyK5.png"}}/>
+                        <Text style={styles.back_text}>Voltar</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{backgroundColor:'#202020',padding:20, marginLeft:5,marginRight:5,marginTop:0,borderRadius:10}}>
@@ -70,11 +65,10 @@ const Felix = () =>{
                         </TouchableOpacity>
                     </View>
                     <Collapsible collapsed={collapsed} align = "center">
-                        <View style={{marginTop:0}}>
-                            <Text style={{color:'white', paddingLeft:25,fontSize:14, textAlign:'left', marginTop:5}}>Felix Richter is a visionary architect, able to use his relentless determination to form a plan and help other Survivors.  </Text>
-                            <Text style={{paddingLeft:25, fontSize:14, textAlign:'left', marginTop: 5}}><Text style={{color:'white', paddingLeft:15,fontSize:14, textAlign:'left'}}>His personal Perks:</Text>
-                            <Text style={{fontWeight:'bold', color:'#a1a41f'}}> Visionary</Text> <Text style={{ color:'white'}}>,</Text> <Text style={{fontWeight:'bold', color:'#a1a41f'}}>Desperate Measures</Text> <Text style={{ color:'white'}}>&</Text> <Text style={{fontWeight:'bold', color:'#a1a41f'}}>Build to Last</Text></Text>
-                            <Text style={{color:'white', paddingLeft:25,fontSize:14, textAlign:'left', marginTop:5}}>Difficulty rating:<Text style={{fontWeight:'bold', color:'#e8c252'}}> Intermediate</Text></Text>
+                        <View style={{marginTop: 5,alignItems: 'center', flexDirection:'row', justifyContent: 'space-between', width: '100%'}}>
+                                <Image style={{width:90,height:180, marginLeft: 20}} source={{ uri: "https://static.wikia.nocookie.net/deadbydaylight_gamepedia_en/images/5/50/StoreBackground_YS.png/revision/latest/scale-to-width-down/150?cb=20200819095646"}}/>
+                                <View style={{height:'90%', width:1, backgroundColor:'#e2ce97', marginLeft: 10}}></View>
+                                <Text style={{flex: 1,flexWrap: 'wrap',color:'white', paddingLeft:25,fontSize:14, textAlign:'left', marginTop:5}}>Felix Richter is a visionary architect, able to use his relentless determination to form a plan and help other Survivors.{"\n"}{"\n"}His personal Perks:<Text style={{fontWeight:'bold', color:'#a1a41f'}}> Visionary</Text> <Text style={{ color:'white'}}>,</Text> <Text style={{fontWeight:'bold', color:'#a1a41f'}}>Desperate Measures</Text> <Text style={{ color:'white'}}>&</Text> <Text style={{fontWeight:'bold', color:'#a1a41f'}}>Build to Last</Text>.<Text style={{color:'white', paddingLeft:25,fontSize:14, textAlign:'left', marginTop:5}}>{"\n"}{"\n"}Difficulty rating:<Text style={{fontWeight:'bold', color:'#e8c252'}}> Intermediate</Text></Text></Text>
                         </View>
                     </Collapsible>
     
@@ -145,7 +139,6 @@ const Felix = () =>{
     else if(estado == 'Sobreviventes'){
         return(
             <View style={{backgroundColor:'#29292b'}} style={StyleSheet.absoluteFill}>
-              <Header></Header>
               <Survivors></Survivors>
             </View>
           )
@@ -153,3 +146,41 @@ const Felix = () =>{
 }
 
 export default Felix;
+
+const styles = StyleSheet.create({
+    back_button: {
+      ...Platform.select({
+        ios: {
+            width:30,
+            height:30,
+            marginTop: 10
+        },
+        android: {
+            marginTop: 5
+        }
+      })
+    },
+    back_text: {
+        ...Platform.select({
+            ios: {
+                flex: 1,
+                flexWrap: 'wrap',
+                color:'white',
+                fontSize:20, 
+                textAlign:'left', 
+                marginTop:15, 
+                color: '#a6a105'
+            },
+            android: {
+                flex: 1,
+                flexWrap: 'wrap',
+                color:'white',
+                fontSize:15, 
+                textAlign:'left', 
+                marginTop:10, 
+                color: '#a6a105'
+            }
+          })
+        
+    }
+  });
