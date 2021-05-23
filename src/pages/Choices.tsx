@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/core';
 import { View, Text, Image, Dimensions, TouchableOpacity, SafeAreaView, ScrollView, StatusBar } from 'react-native'
 import fonts from '../styles/fonts';
 
-export default function Choice() {
+export function Choice() {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#29292b', paddingTop: 20 }}>

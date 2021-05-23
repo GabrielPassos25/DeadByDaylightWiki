@@ -27,7 +27,8 @@ export function Survivors() {
                 role: item.role,
                 nationality: item.nationality,
                 dlc: item.dlc,
-                description: item.description,
+                description_init: item.description_init,
+                description_end: item.description_end,
                 description_overview: item.description_overview,
                 perks: item.perks,
                 perk1_name: item.perk1_name,
@@ -51,7 +52,7 @@ export function Survivors() {
                         setThings(item.difficult)
                     }
                     <Image style={{ width: 130, height: 180, marginLeft: 20 }} source={{ uri: item.image }} />
-                    <Text style={{ flex: 1, fontFamily: fonts.text, flexWrap: 'wrap', color: 'white', paddingLeft: 15, fontSize: 14, textAlign: 'justify', marginTop: 5, marginRight: 20, marginBottom: 10 }}><Text style={{ fontWeight: 'bold' }}>{item.name}</Text> {item.description}{"\n"}{"\n"}{item.perks}<Text style={{ fontWeight: 'bold', color: '#a1a41f' }}> {item.perk1_name}</Text><Text style={{ color: 'white' }}>, </Text><Text style={{ fontWeight: 'bold', color: '#a1a41f' }}>{item.perk2_name}</Text> <Text style={{ color: 'white' }}>&</Text> <Text style={{ fontWeight: 'bold', color: '#a1a41f' }}>{item.perk3_name}</Text>.<Text style={{ color: 'white', paddingLeft: 25, fontSize: 14, textAlign: 'left', marginTop: 5 }}>{"\n"}{"\n"}Difficulty rating:<Text style={{ fontWeight: 'bold', color: color_survivor }}> {item.difficult}</Text></Text></Text>
+                    <Text style={{ flex: 1, fontFamily: fonts.text, flexWrap: 'wrap', color: 'white', paddingLeft: 15, fontSize: 14, textAlign: 'justify', marginTop: 5, marginRight: 20, marginBottom: 10 }}><Text style={{ fontWeight: 'bold' }}>{item.name}</Text> {item.description_init}{item.description_end}{"\n"}{"\n"}{item.perks}<Text style={{ fontWeight: 'bold', color: '#a1a41f' }}> {item.perk1_name}</Text><Text style={{ color: 'white' }}>, </Text><Text style={{ fontWeight: 'bold', color: '#a1a41f' }}>{item.perk2_name}</Text> <Text style={{ color: 'white' }}>&</Text> <Text style={{ fontWeight: 'bold', color: '#a1a41f' }}>{item.perk3_name}</Text>.<Text style={{ color: 'white', paddingLeft: 25, fontSize: 14, textAlign: 'left', marginTop: 5 }}>{"\n"}{"\n"}Difficulty rating:<Text style={{ fontWeight: 'bold', color: color_survivor }}> {item.difficult}</Text></Text></Text>
                 </View>
             </TouchableOpacity>
             <View style={{ borderBottomColor: '#a6a105', borderBottomWidth: 1 }} />
